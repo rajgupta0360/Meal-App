@@ -54,7 +54,7 @@ main {
 #input {
     width: 40vw;
     min-width: 350px;
-    font-size: 40px;
+    font-size: 30px;
     border-radius: 10px;
     padding: 10px;
 }
