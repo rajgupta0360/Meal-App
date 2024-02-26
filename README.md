@@ -50,4 +50,4 @@ Check Out Project: <a href=""> Project link</a>
     </li>
 </ol>
 
-## Screenshorts
+## Screenshots
