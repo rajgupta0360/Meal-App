@@ -51,3 +51,8 @@ Check Out Project: <a href=""> Project link</a>
 </ol>
 
 ## Screenshots
+
+#### Home Page:
+
+<img src="/screenshots/homepage1.png">
+<img src="/screenshots/homepage2.png">
