@@ -56,3 +56,12 @@ Check Out Project: <a href=""> Project link</a>
 
 <img src="/screenshots/homepage1.png">
 <img src="/screenshots/homepage2.png">
+
+#### More Details:
+
+<img src="/screenshots/detailspage.png">
+
+#### Favourites Page
+
+<img src="/screenshots/favouritespage.png">
+<img src="/screenshots/favouritespage2.png">
