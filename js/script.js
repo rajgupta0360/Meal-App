@@ -1,7 +1,9 @@
+// Accessing elements
 const cardContainer = document.querySelector(".card-container");
 const input = document.getElementById("input");
 const popupBox = document.querySelector(".popup-box");
 
+// fetching data from API
 async function fecthMeal(url, value) {
   const data = await fetch(`${url + value}`);
   const response = await data.json();
@@ -10,6 +12,7 @@ async function fecthMeal(url, value) {
   return meals;
 }
 
+// when we write something in our input box then this function invoked
 function showMeals() {
   let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
   fecthMeal(url, input.value).then((data) => {
@@ -17,9 +20,17 @@ function showMeals() {
 
     const mealIds = getMealLS();
 
-    for (let i = 0; i < data.length; i++) {
-      if (mealIds.includes(Number(data[i].idMeal))) {
-        clutter += `<div class="card-content">
+    // check if the meal does not exist then perform this operation else perform other operation
+    if (data == null) {
+      cardContainer.innerHTML = "No Meals Found";
+      cardContainer.style.fontSize = "70px";
+      cardContainer.style.fontWeight = "600";
+      cardContainer.style.color = "#fff";
+      // alert("Please write a valid name");
+    } else {
+      for (let i = 0; i < data.length; i++) {
+        if (mealIds.includes(Number(data[i].idMeal))) {
+          clutter += `<div class="card-content">
       <img src=${data[i].strMealThumb} alt="" class="image" />
       <h3>${data[i].strMeal}</h3>
       <div class="card-element">
@@ -27,29 +38,30 @@ function showMeals() {
         <button id="fav${data[i].idMeal}" class="btn-fav" onClick="favList(${data[i].idMeal})"><i class="fa-solid fa-heart"></i></button>
       </div>
     </div>`;
-      } else {
-        clutter += `<div class="card-content">
+        } else {
+          clutter += `<div class="card-content">
       <img src=${data[i].strMealThumb} alt="" class="image" />
       <h3>${data[i].strMeal}</h3>
       <div class="card-element">
-        <button class="btn-details" onClick="displayPopup('${data[i].strMeal}')"><a href="#popup">More Details</a></button>
+        <button class="btn-details" onClick="displayPopup('${data[i].idMeal}')"><a href="#popup">More Details</a></button>
         <button id="fav${data[i].idMeal}" class="btn-fav" onClick="favList(${data[i].idMeal})"><i class="fa-regular fa-heart"></i></button>
       </div>
     </div>`;
+        }
       }
-    }
 
-    cardContainer.innerHTML = clutter;
+      cardContainer.innerHTML = clutter;
+    }
   });
 }
+
 // This function show the popup, this function is for putting the data in the popup
-function displayPopup(strMeal) {
+function displayPopup(idMeal) {
   let url = "https://www.themealdb.com/api/json/v1/1/search.php?s=";
-  console.log(strMeal);
   fecthMeal(url, input.value).then((data) => {
     let clutter = "";
     for (let i = 0; i < data.length; i++) {
-      if (data[i].strMeal == strMeal) {
+      if (data[i].idMeal == idMeal) {
         clutter = `<div class="x"><a href="#">x</a></div>
             <div class="popup-content">
               <div class="left">
@@ -72,6 +84,7 @@ function displayPopup(strMeal) {
   });
 }
 
+// storing and removing data to the local storage
 function favList(idMeal) {
   const fav = document.querySelector(`#fav${idMeal}`);
 
