@@ -104,3 +104,5 @@ function removeMealLS(mealID) {
     JSON.stringify(mealIds.filter((id) => id !== mealID))
   );
 }
+
+console.log('checking the error');
