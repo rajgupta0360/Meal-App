@@ -34,7 +34,7 @@ function showMeals() {
       <img src=${data[i].strMealThumb} alt="" class="image" />
       <h3>${data[i].strMeal}</h3>
       <div class="card-element">
-        <button class="btn-details" onClick="displayPopup('${data[i].strMeal}')"><a href="#popup">More Details</a></button>
+        <button class="btn-details" onClick="displayPopup('${data[i].idMeal}')"><a href="#popup">More Details</a></button>
         <button id="fav${data[i].idMeal}" class="btn-fav" onClick="favList(${data[i].idMeal})"><i class="fa-solid fa-heart"></i></button>
       </div>
     </div>`;
@@ -98,7 +98,6 @@ function favList(idMeal) {
     removeMealLS(idMeal);
     alert("your meal is removed from favourite list");
   }
-  console.log(fav);
 }
 
 // Fetches the Meal from the Local Storage
