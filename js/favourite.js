@@ -1,5 +1,3 @@
-
-
 // Accessing the favourite meal container
 const cardContainer = document.querySelector(".card-container");
 
@@ -36,6 +34,14 @@ async function fetchFavMeals() {
     let meal = await getMealById(mealID);
     addMealToFav(meal);
     meals.push(meal);
+  }
+  if (meals.length == 0) {
+    cardContainer.innerHTML = `<div style="position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%)">
+    <h1 style="color: #fff; font-size: 50px; margin-bottom: 20px; text-align: center;">Meal List is Empty</h1>
+    <p style="color: #fff; font-size: 30px;">There is no favourite meal in your list</p>
+    </div>`;
+
+    document.querySelector(".heading").style.display = "none";
   }
 }
 
