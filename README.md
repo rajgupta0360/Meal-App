@@ -3,7 +3,6 @@
 This is a Meal Web App it is built by using TheMeal API. In this web app user can get the meals by their name and store the favorite meal by clicking on the heart icon, user can also see the details by clicking on the more detail button and can also watch the youtube video by clicking on the watch video button that is present inside the popup.
 
 TheMeal API Link: <a href="https://www.themealdb.com/api.php">https://www.themealdb.com/api.php</a><br>
-Check Out Project: 
 
 ## Demo
 Check Live Product:- <a href="https://rajgupta0360.github.io/Meal-App/"> https://rajgupta0360.github.io/Meal-App/</a>
